@@ -10,9 +10,9 @@ module OmniAuth
       }
 
       option :authorize_params, {:response_type => "code"}
-      option :authorize_options, [:scope, :state]
+      option :authorize_options, [:scope]
 
-      uid { raw_info["username"] }
+      uid { access_token.to_hash[:access_token] }
 
       info do
         {
